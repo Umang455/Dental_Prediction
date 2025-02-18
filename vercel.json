@@ -1,0 +1,26 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "Dockerfile",
+        "use": "@vercel/docker"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/app.py"
+      }
+    ],
+    "functions": {
+      "app.py": {
+        "runtime": "python3.9",
+        "includeFiles": "fonts/*"
+      }
+    },
+    "build": {
+      "env": {
+        "LD_LIBRARY_PATH": "/usr/lib"
+      }
+    }
+  }
